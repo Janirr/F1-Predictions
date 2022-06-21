@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('home');
+// });
 
-Route::get('/env', function () {
-    return env('CREATOR_NAME');
-});
+Route::get('/', [PagesController::class, 'index']);
+Route::get('/about', [PagesController::class, 'about']);
+// Pattern is integer
+// Route::get('/products/{id}', 
+// [ProductsController::class, 'show'])->where('id', '[0-9]+');
+
+// Pattern is string
+// Route::get('/products/{name}/{id}', 
+// [ProductsController::class, 'show'])->where([
+//     'name' => '[a-z]+',
+//     'id' => '[0-9]+'
+// ]);
