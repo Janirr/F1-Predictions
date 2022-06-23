@@ -1,3 +1,5 @@
+Hello, this will be an application to make the predictions for the top 10 drivers in specific Grand Prix in F1.
+
 To launch the application:
 
 ``php artisan serve``
