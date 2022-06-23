@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PagesController;
+// use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\PredictionsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,11 +16,12 @@ use App\Http\Controllers\PagesController;
 */
 
 // Route::get('/', function () {
-//     return view('home');
+//     return view('index');
 // });
 
-Route::get('/', [PagesController::class, 'index']);
-Route::get('/about', [PagesController::class, 'about']);
+Route::resource('/predictions', PredictionsController::class);
+// Route::get('/', [PagesController::class, 'index']);
+// Route::get('/about', [PagesController::class, 'about']);
 // Pattern is integer
 // Route::get('/products/{id}', 
 // [ProductsController::class, 'show'])->where('id', '[0-9]+');
@@ -30,3 +32,5 @@ Route::get('/about', [PagesController::class, 'about']);
 //     'name' => '[a-z]+',
 //     'id' => '[0-9]+'
 // ]);
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
