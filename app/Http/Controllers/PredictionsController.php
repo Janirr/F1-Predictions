@@ -16,7 +16,7 @@ class PredictionsController extends Controller
     {
         $predictions = Prediction::all();
 
-        return view('index', [
+        return view('predictions/index', [
             'predictions' => $predictions
         ]);
     }
@@ -28,7 +28,7 @@ class PredictionsController extends Controller
      */
     public function create()
     {
-        //
+        return view('predictions.create');
     }
 
     /**
@@ -39,7 +39,20 @@ class PredictionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $predictions = Prediction::create([
+            'id' => $request->input('id'),
+            'first' => $request->input('first'),
+            'second' => $request->input('second'),
+            'third' => $request->input('third'),
+            'fourth' => $request->input('fourth'),
+            'fifth' => $request->input('fifth'),
+            'sixth' => $request->input('sixth'),
+            'seventh' => $request->input('seventh'),
+            'eighth' => $request->input('eighth'),
+            'nineth' => $request->input('nineth'),
+            'tenth' => $request->input('tenth'),
+        ]);
+        return redirect('/predictions');
     }
 
     /**
@@ -61,7 +74,9 @@ class PredictionsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $prediction = Prediction::find($id)->first();
+        
+        return view('predictions.edit')->with('prediction', $prediction);
     }
 
     /**
@@ -73,7 +88,21 @@ class PredictionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $predictions = Prediction::where('id',$id)
+            ->update([
+            'first' => $request->input('first'),
+            'second' => $request->input('second'),
+            'third' => $request->input('third'),
+            'fourth' => $request->input('fourth'),
+            'fifth' => $request->input('fifth'),
+            'sixth' => $request->input('sixth'),
+            'seventh' => $request->input('seventh'),
+            'eighth' => $request->input('eighth'),
+            'nineth' => $request->input('nineth'),
+            'tenth' => $request->input('tenth'),
+        ]);
+
+        return redirect('/predictions');
     }
 
     /**

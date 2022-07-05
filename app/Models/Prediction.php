@@ -11,5 +11,7 @@ class Prediction extends Model
 
     protected $table = 'predictions';
 
-    
+    protected $primaryKey = 'id';
+
+    protected $fillable = ['first','second','third','fourth','fifth','sixth','seventh','eighth','nineth','tenth'];
 }
