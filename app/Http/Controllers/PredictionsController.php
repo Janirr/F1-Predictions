@@ -74,7 +74,7 @@ class PredictionsController extends Controller
      */
     public function edit($id)
     {
-        $prediction = Prediction::find($id)->first();
+        $prediction = Prediction::find($id);
         
         return view('predictions.edit')->with('prediction', $prediction);
     }
